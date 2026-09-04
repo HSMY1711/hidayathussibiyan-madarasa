@@ -144,12 +144,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (menuIcon) {
-        menuIcon.textContent = "☰";
-      }
+  menuIcon.textContent = "☰";
+}
 
-      menuButton.focus();
-
-    }
+if (menuButton) {
+  menuButton.focus();
+}
 
   });
 

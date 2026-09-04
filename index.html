@@ -1,874 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hidayathussibiyan Madarasa - A modern digital platform connecting faith, knowledge, education and community.">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="A digital platform for faith, knowledge, education and community.">
+
   <meta name="theme-color" content="#075c6b">
+
   <title>Hidayathussibiyan Madarasa</title>
 
-  <style>
-    /* ===== CSS CUSTOM PROPERTIES ===== */
-    :root {
-      --primary: #075c6b;
-      --primary-dark: #043b45;
-      --primary-light: #0d7a8a;
-      --accent: #c59b4b;
-      --accent-dark: #a87e2f;
-      --cream: #f7f4ed;
-      --white: #ffffff;
-      --text: #1d2527;
-      --text-secondary: #1d2527cc;
-      --muted: #687274;
-      --border: #e9e5dd;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.1);
-      --transition-fast: 0.2s ease;
-      --transition-base: 0.3s ease;
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 2.5rem;
-      --space-2xl: 3rem;
-      --radius-sm: 0.5rem;
-      --radius-md: 0.875rem;
-      --radius-lg: 1.25rem;
-      --radius-full: 9999px;
-      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    /* ===== RESET & BASE STYLES ===== */
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ===== SKIP LINK (A11Y) ===== */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--primary-dark);
-      color: white;
-      padding: var(--space-sm);
-      text-decoration: none;
-      z-index: 100;
-      border-radius: var(--radius-sm);
-    }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      background: rgba(255, 255, 255, 0.98);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-lg);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      text-decoration: none;
-      color: inherit;
-      min-width: 0;
-      flex-shrink: 0;
-    }
-
-    .logo-placeholder {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.125rem;
-      flex-shrink: 0;
-    }
-
-    .brand-text h1 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      line-height: 1.2;
-    }
-
-    .brand-text span {
-      font-size: 0.8125rem;
-      color: var(--muted);
-      display: block;
-      margin-top: 0.25rem;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-left: auto;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: color var(--transition-fast);
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width var(--transition-fast);
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    nav a:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 4px;
-      border-radius: var(--radius-sm);
-    }
-
-    .language {
-      border: 1px solid var(--border);
-      background: var(--white);
-      padding: 0.5rem 0.75rem;
-      border-radius: var(--radius-md);
-      color: var(--text);
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .language:hover {
-      border-color: var(--primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .language:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
-    }
-
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      margin: -0.5rem;
-      transition: transform var(--transition-fast);
-    }
-
-    .menu-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .menu-btn:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
-      border-radius: var(--radius-sm);
-    }
-
-    /* ===== HERO SECTION ===== */
-    .hero {
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      padding: 5rem 1.25rem;
-      background:
-        radial-gradient(circle at top right,
-          rgba(197, 155, 75, 0.15),
-          transparent 35%),
-        linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      max-width: 850px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-full);
-      margin-bottom: 1.375rem;
-      font-size: 0.85rem;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-
-    .hero h2 {
-      font-size: clamp(2rem, 7vw, 5rem);
-      line-height: 1.1;
-      margin-bottom: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    .hero-buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* ===== BUTTONS ===== */
-    .btn {
-      display: inline-block;
-      padding: 0.875rem 1.875rem;
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all var(--transition-fast);
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      text-transform: none;
-      letter-spacing: 0.5px;
-    }
-
-    .btn:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.5);
-      outline-offset: 2px;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #1e1b14;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-    }
-
-    .btn-outline {
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: white;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      border-color: white;
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline:active {
-      transform: translateY(0);
-    }
-
-    /* ===== SECTIONS ===== */
-    section {
-      padding: 5rem 1.25rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      color: var(--primary-dark);
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    /* ===== GRID & CARDS ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    @supports (grid-template-columns: repeat(4, 1fr)) {
-      .grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .card {
-      background: var(--white);
-      padding: 1.875rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      transition: all var(--transition-base);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-
-    .card:focus-within {
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .card h3 {
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-
-    /* ===== ANNOUNCEMENT ===== */
-    .announcement {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 1.875rem;
-      border-left: 5px solid var(--accent);
-      box-shadow: var(--shadow-md);
-      transition: all var(--transition-base);
-    }
-
-    .announcement:hover {
-      box-shadow: var(--shadow-lg);
-    }
-
-    .announcement h3 {
-      color: var(--primary-dark);
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .announcement p {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
-
-    .announcement-meta {
-      margin-top: 1.25rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    /* ===== EVENT BOX (JASHNE) ===== */
-    .event-box {
-      background:
-        linear-gradient(135deg, #073f49, #086574);
-      color: white;
-      border-radius: var(--radius-lg);
-      padding: 3.125rem 1.875rem;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .event-box h2 {
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-      margin-bottom: 0.75rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    .event-box p {
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .event-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .event-date {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.25rem;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #062f36;
-      color: rgba(255, 255, 255, 0.8);
-      padding: 3rem 1.25rem;
-      text-align: center;
-    }
-
-    footer h3 {
-      color: white;
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    footer p {
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color var(--transition-fast);
-    }
-
-    footer a:hover {
-      color: var(--accent-dark);
-      text-decoration: underline;
-    }
-
-    footer a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-      border-radius: var(--radius-sm);
-    }
-
-    /* ===== MOBILE MENU ===== */
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 1rem;
-        gap: 1rem;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--white);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 1rem;
-        gap: 0.5rem;
-        border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow-md);
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius-md);
-        transition: background-color var(--transition-fast);
-      }
-
-      nav a::after {
-        display: none;
-      }
-
-      nav a:hover {
-        background: var(--cream);
-      }
-
-      nav a:focus-visible {
-        outline: 2px solid var(--primary);
-        outline-offset: -2px;
-      }
-
-      .language {
-        width: 100%;
-      }
-
-      .menu-btn {
-        display: block;
-        margin-left: auto;
-      }
-
-      .hero {
-        min-height: 480px;
-        padding: 4rem 1.25rem;
-      }
-
-      section {
-        padding: 3rem 1.25rem;
-      }
-
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .event-box {
-        padding: 2.5rem 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .brand-text h1 {
-        font-size: 1rem;
-      }
-
-      .brand-text span {
-        display: none;
-      }
-
-      .hero h2 {
-        line-height: 1.2;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .announcement-meta {
-        font-size: 0.8rem;
-      }
-    }
-
-    /* ===== ACCESSIBILITY ===== */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    /* ===== PRINT ===== */
-    @media print {
-      header,
-      .menu-btn,
-      footer {
-        display: none;
-      }
-
-      body {
-        background: white;
-      }
-
-      section {
-        padding: 2rem 0;
-        page-break-inside: avoid;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <!-- SKIP LINK FOR ACCESSIBILITY -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- HEADER -->
-  <header>
-    <div class="navbar">
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <div class="navbar container">
+
+      <!-- BRAND -->
+
       <a href="#home" class="brand">
-        <div class="logo-placeholder" aria-label="Hidayathussibiyan Madarasa">HM</div>
-        <div class="brand-text">
-          <h1>Hidayathussibiyan Madarasa</h1>
-          <span>Faith • Knowledge • Learning</span>
+
+        <!-- Replace with real logo later -->
+
+        <div class="brand-logo" id="brandLogo">
+          HM
         </div>
+
+
+        <div class="brand-text">
+
+          <!-- EDITABLE LATER -->
+
+          <h1 id="madarasaName">
+            Hidayathussibiyan Madarasa
+          </h1>
+
+          <p id="madarasaTagline">
+            Faith • Knowledge • Learning
+          </p>
+
+        </div>
+
       </a>
 
-      <nav id="navMenu" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#madarasa">Madarasa</a>
-        <a href="#resources">Resources</a>
-        <a href="#results">Results</a>
-        <a href="#jashne">Jashne Rabeeh</a>
 
-        <select class="language" aria-label="Select language">
-          <option>English</option>
-          <option>ಕನ್ನಡ</option>
-          <option>മലയാളം</option>
-        </select>
+      <!-- DESKTOP / MOBILE NAVIGATION -->
+
+      <nav class="nav-menu"
+           id="navMenu"
+           aria-label="Main navigation">
+
+        <a href="#home">Home</a>
+
+        <a href="#explore">Explore</a>
+
+        <a href="#announcements">
+          Announcements
+        </a>
+
+        <a href="#jashne">
+          Jashne Rabeeh
+        </a>
+
       </nav>
 
-      <button class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+
+      <!-- MOBILE MENU BUTTON -->
+
+      <button class="menu-button"
+              id="menuButton"
+              aria-label="Open navigation menu"
+              aria-expanded="false">
+
+        ☰
+
+      </button>
+
     </div>
+
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main id="main-content">
-    <!-- HERO SECTION -->
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
     <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="hero-badge">Welcome to Our Digital Platform</div>
 
-        <h2>Hidayathussibiyan<br>Madarasa</h2>
+      <div class="hero-decoration"></div>
 
-        <p>A modern digital platform connecting faith, knowledge, education and our community.</p>
+
+      <div class="hero-content container">
+
+
+        <!-- HERO LOGO -->
+
+        <div class="hero-logo">
+
+          HM
+
+        </div>
+
+
+        <!-- EDITABLE BADGE -->
+
+        <p class="hero-badge"
+           id="heroBadge">
+
+          Welcome to Our Digital Platform
+
+        </p>
+
+
+        <!-- EDITABLE HEADING -->
+
+        <h2 id="heroTitle">
+
+          Hidayathussibiyan
+          <span>Madarasa</span>
+
+        </h2>
+
+
+        <!-- EDITABLE DESCRIPTION -->
+
+        <p class="hero-description"
+           id="heroDescription">
+
+          A modern digital platform connecting
+          faith, knowledge, education and our
+          community.
+
+        </p>
+
+
+        <!-- EDITABLE BUTTONS -->
 
         <div class="hero-buttons">
-          <a href="#resources" class="btn btn-primary">Explore Resources</a>
-          <a href="#jashne" class="btn btn-outline">Explore Jashne Rabeeh</a>
+
+          <a href="#explore"
+             class="button button-primary"
+             id="heroButtonOne">
+
+            Explore Our Platform
+
+          </a>
+
+
+          <a href="#jashne"
+             class="button button-outline"
+             id="heroButtonTwo">
+
+            Jashne Rabeeh
+
+          </a>
+
         </div>
+
+
+        <!-- SCROLL DOWN -->
+
+        <a href="#explore"
+           class="scroll-indicator"
+           aria-label="Scroll to explore section">
+
+          <span>
+            Scroll Down
+          </span>
+
+          ↓
+
+        </a>
+
+
       </div>
+
     </section>
 
-    <!-- QUICK ACCESS CARDS -->
-    <section>
+
+
+    <!-- =========================
+         EXPLORE SECTION
+    ========================== -->
+
+    <section class="explore-section"
+             id="explore">
+
       <div class="container">
-        <div class="section-title">
-          <h2>Explore</h2>
-          <p>Everything in one digital platform.</p>
+
+
+        <div class="section-heading">
+
+          <p class="section-label">
+            Explore
+          </p>
+
+          <h2 id="exploreTitle">
+
+            Everything in One Place
+
+          </h2>
+
+
+          <p id="exploreDescription">
+
+            Discover information, resources,
+            results, events and more.
+
+          </p>
+
         </div>
 
-        <div class="grid">
-          <div class="card">
-            <span class="card-icon" aria-hidden="true">🕌</span>
-            <h3>Madarasa</h3>
-            <p>Learn more about our Madarasa and community.</p>
+
+
+        <!-- CARDS -->
+
+        <div class="cards-grid">
+
+
+          <!-- MADARASA INFORMATION -->
+
+          <a href="madarasa/index.html"
+             class="feature-card">
+
+            <div class="card-icon">
+
+              <!-- LOGO WILL REPLACE THIS -->
+
+              🕌
+
+            </div>
+
+
+            <h3>
+              Madarasa Information
+            </h3>
+
+
+            <p>
+              Learn more about our Madarasa,
+              history and community.
+            </p>
+
+
+            <span class="card-link">
+
+              Explore →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- RESOURCES -->
+
+          <a href="resources/index.html"
+             class="feature-card">
+
+            <div class="card-icon">
+
+              📚
+
+            </div>
+
+
+            <h3>
+              Resources
+            </h3>
+
+
+            <p>
+              Access educational materials
+              and useful digital resources.
+            </p>
+
+
+            <span class="card-link">
+
+              Explore →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- EXAM RESULTS -->
+
+          <a href="exam-results/index.html"
+             class="feature-card">
+
+            <div class="card-icon">
+
+              📝
+
+            </div>
+
+
+            <h3>
+              Exam Results
+            </h3>
+
+
+            <p>
+              View Mid-Term and Final
+              Examination results.
+            </p>
+
+
+            <span class="card-link">
+
+              View Results →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- JASHNE RABEEH -->
+
+          <a href="jashne-rabeeh/index.html"
+             class="feature-card">
+
+            <div class="card-icon">
+
+              🏆
+
+            </div>
+
+
+            <h3>
+              Jashne Rabeeh
+            </h3>
+
+
+            <p>
+              Events, competitions,
+              updates and results.
+            </p>
+
+
+            <span class="card-link">
+
+              Explore →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- USTHAD INFORMATION -->
+
+          <a href="usthad-information/index.html"
+             class="feature-card">
+
+            <div class="card-icon">
+
+              👤
+
+            </div>
+
+
+            <h3>
+              Usthad Information
+            </h3>
+
+
+            <p>
+              View information about
+              our respected Usthads.
+            </p>
+
+
+            <span class="card-link">
+
+              View Information →
+
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ANNOUNCEMENTS
+    ========================== -->
+
+    <section class="announcement-section"
+             id="announcements">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <p class="section-label">
+            Updates
+          </p>
+
+
+          <h2 id="announcementTitle">
+
+            Latest Announcements
+
+          </h2>
+
+
+          <p>
+
+            Stay updated with important
+            news and information.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="announcement-list">
+
+
+          <!-- ANNOUNCEMENT -->
+
+          <article class="announcement-card">
+
+
+            <div class="announcement-date">
+
+              <span class="date-day">
+                --
+              </span>
+
+              <span class="date-month">
+
+                Coming Soon
+
+              </span>
+
+            </div>
+
+
+
+            <div class="announcement-content">
+
+              <h3>
+
+                Welcome to Our Digital Platform
+
+              </h3>
+
+
+              <p>
+
+                Important announcements and
+                updates will appear here.
+
+              </p>
+
+            </div>
+
+
+          </article>
+
+
+        </div>
+
+
+        <div class="section-button">
+
+          <a href="#"
+             class="button button-secondary">
+
+            View All Announcements
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         JASHNE RABEEH HIGHLIGHT
+    ========================== -->
+
+    <section class="jashne-section"
+             id="jashne">
+
+      <div class="container">
+
+
+        <div class="jashne-box">
+
+
+          <div class="jashne-logo">
+
+            🏆
+
           </div>
 
-          <div class="card">
-            <span class="card-icon" aria-hidden="true">📚</span>
-            <h3>Resources</h3>
-            <p>Educational materials and digital resources.</p>
-          </div>
 
-          <div class="card">
-            <span class="card-icon" aria-hidden="true">📝</span>
-            <h3>Results</h3>
-            <p>Access published examination results.</p>
-          </div>
+          <p class="jashne-label">
 
-          <div class="card">
-            <span class="card-icon" aria-hidden="true">🏆</span>
-            <h3>Jashne Rabeeh</h3>
-            <p>Events, competitions, results and updates.</p>
-          </div>
+            Special Programme
+
+          </p>
+
+
+          <h2>
+
+            Jashne Rabeeh
+
+          </h2>
+
+
+          <p>
+
+            Discover programme details,
+            competitions, announcements
+            and results.
+
+          </p>
+
+
+          <a href="jashne-rabeeh/index.html"
+             class="button button-gold">
+
+            Explore Jashne Rabeeh
+
+          </a>
+
+
         </div>
+
+
       </div>
+
     </section>
 
-    <!-- ANNOUNCEMENTS SECTION -->
-    <section id="madarasa">
-      <div class="container">
-        <div class="section-title">
-          <h2>Latest Announcements</h2>
-          <p>Stay updated with the latest news.</p>
-        </div>
 
-        <article class="announcement">
-          <h3>Welcome to Our New Digital Platform</h3>
-          <p>Announcements and important updates will appear here.</p>
-          <div class="announcement-meta">
-            <span aria-hidden="true">📅</span> To be announced
-            <span aria-hidden="true">•</span>
-            <span aria-hidden="true">👤</span> Posted by: Hidayathussibiyan Administration
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- JASHNE RABEEH SECTION -->
-    <section id="jashne">
-      <div class="container">
-        <article class="event-box">
-          <span class="event-icon" aria-hidden="true">🏆</span>
-          <h2>Jashne Rabeeh</h2>
-          <p>Programme details will be announced soon.</p>
-          <div class="event-date"><span aria-hidden="true">📅</span> Date: To Be Announced</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- RESOURCES SECTION -->
-    <section id="resources">
-      <div class="container">
-        <div class="section-title">
-          <h2>Educational Resources</h2>
-          <p>Resources will be added here.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESULTS SECTION -->
-    <section id="results">
-      <div class="container">
-        <div class="section-title">
-          <h2>Examination Results</h2>
-          <p>Published results will be available here.</p>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <h3>Hidayathussibiyan Madarasa</h3>
-    <p>Faith • Knowledge • Learning</p>
-    <a href="#">Admin Login</a>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+
+    <div class="container footer-content">
+
+
+      <!-- FOOTER BRAND -->
+
+      <div class="footer-brand">
+
+
+        <div class="footer-logo">
+
+          HM
+
+        </div>
+
+
+        <h3>
+
+          Hidayathussibiyan Madarasa
+
+        </h3>
+
+
+        <p>
+
+          Faith • Knowledge • Learning
+
+        </p>
+
+
+      </div>
+
+
+
+      <!-- FOOTER LINKS -->
+
+      <div class="footer-links">
+
+
+        <a href="#home">
+
+          Home
+
+        </a>
+
+
+        <a href="#explore">
+
+          Explore
+
+        </a>
+
+
+        <a href="#announcements">
+
+          Announcements
+
+        </a>
+
+
+        <a href="admin/index.html">
+
+          Admin Login
+
+        </a>
+
+
+      </div>
+
+
+      <!-- COPYRIGHT -->
+
+      <p class="copyright">
+
+        © <span id="currentYear"></span>
+        Hidayathussibiyan Madarasa.
+        All Rights Reserved.
+
+      </p>
+
+
+    </div>
+
+
   </footer>
 
-  <script>
-    // Toggle mobile navigation menu
-    function toggleMenu() {
-      const navMenu = document.getElementById('navMenu');
-      const menuBtn = document.querySelector('.menu-btn');
-      const isActive = navMenu.classList.toggle('active');
-      menuBtn.setAttribute('aria-expanded', isActive);
-    }
 
-    // Close menu when a navigation link is clicked
-    document.querySelectorAll('#navMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navMenu').classList.remove('active');
-        document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
-      });
-    });
 
-    // Close menu when clicking outside the navbar
-    document.addEventListener('click', (event) => {
-      const navbar = document.querySelector('.navbar');
-      const navMenu = document.getElementById('navMenu');
-      const menuBtn = document.querySelector('.menu-btn');
+  <!-- JAVASCRIPT -->
 
-      if (!navbar.contains(event.target) && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
+  <script src="js/main.js"></script>
 
-    // Close menu with Escape key
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        const navMenu = document.getElementById('navMenu');
-        const menuBtn = document.querySelector('.menu-btn');
-        if (navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          menuBtn.focus();
-        }
-      }
-    });
-  </script>
 </body>
-</html>
+
+              </html>

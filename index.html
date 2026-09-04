@@ -8,12 +8,14 @@
         content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="A digital platform for faith, knowledge, education and community.">
+        content="Hidayathussibiyan Madarasa - Faith, Knowledge and Learning.">
 
-  <meta name="theme-color" content="#075c6b">
+  <meta name="theme-color"
+        content="#075c6b">
 
   <title>Hidayathussibiyan Madarasa</title>
 
+  <!-- MAIN STYLESHEET -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -21,70 +23,118 @@
 <body>
 
   <!-- =========================
+       ACCESSIBILITY SKIP LINK
+  ========================== -->
+  <a href="#main-content"
+     class="skip-link">
+    Skip to main content
+  </a>
+
+
+  <!-- =========================
        HEADER
   ========================== -->
-
   <header class="site-header">
 
     <div class="navbar container">
 
       <!-- BRAND -->
+      <a href="index.html"
+         class="brand"
+         aria-label="Go to home page">
 
-      <a href="#home" class="brand">
+        <!-- REPLACEABLE LOGO -->
+        <div class="brand-logo"
+             id="siteLogo"
+             data-editable="logo">
 
-        <!-- Replace with real logo later -->
+          <span id="siteLogoText">HM</span>
 
-        <div class="brand-logo" id="brandLogo">
-          HM
+          <!--
+          FUTURE:
+          Admin can replace this with an image logo.
+          -->
+
         </div>
 
 
+        <!-- REPLACEABLE NAME AND TAGLINE -->
         <div class="brand-text">
 
-          <!-- EDITABLE LATER -->
-
-          <h1 id="madarasaName">
+          <h1 id="siteName"
+              data-editable="text">
             Hidayathussibiyan Madarasa
           </h1>
 
-          <p id="madarasaTagline">
+          <span id="siteTagline"
+                data-editable="text">
             Faith • Knowledge • Learning
-          </p>
+          </span>
 
         </div>
 
       </a>
 
 
-      <!-- DESKTOP / MOBILE NAVIGATION -->
-
-      <nav class="nav-menu"
-           id="navMenu"
+      <!-- DESKTOP AND MOBILE NAVIGATION -->
+      <nav id="navMenu"
+           class="nav-menu"
            aria-label="Main navigation">
 
-        <a href="#home">Home</a>
+        <a href="index.html">Home</a>
 
-        <a href="#explore">Explore</a>
-
-        <a href="#announcements">
-          Announcements
+        <a href="pages/madarasa.html">
+          Madarasa Information
         </a>
 
-        <a href="#jashne">
+        <a href="pages/usthad-information.html">
+          Usthad Information
+        </a>
+
+        <a href="pages/resources.html">
+          Resources
+        </a>
+
+        <a href="pages/exam-results.html">
+          Exam Results
+        </a>
+
+        <a href="pages/jashne-rabeeh.html">
           Jashne Rabeeh
         </a>
+
+
+        <!-- LANGUAGE SELECTOR -->
+        <select id="languageSelector"
+                class="language-selector"
+                aria-label="Select language">
+
+          <option value="en">
+            English
+          </option>
+
+          <option value="kn">
+            ಕನ್ನಡ
+          </option>
+
+          <option value="ml">
+            മലയാളം
+          </option>
+
+        </select>
 
       </nav>
 
 
       <!-- MOBILE MENU BUTTON -->
-
-      <button class="menu-button"
-              id="menuButton"
+      <button class="menu-btn"
+              id="menuBtn"
+              type="button"
               aria-label="Open navigation menu"
-              aria-expanded="false">
+              aria-expanded="false"
+              aria-controls="navMenu">
 
-        ☰
+        <span class="menu-icon">☰</span>
 
       </button>
 
@@ -97,44 +147,33 @@
   <!-- =========================
        MAIN CONTENT
   ========================== -->
+  <main id="main-content">
 
-  <main>
 
 
     <!-- =========================
          HERO SECTION
     ========================== -->
+    <section class="hero"
+             id="home">
 
-    <section class="hero" id="home">
-
-      <div class="hero-decoration"></div>
-
+      <div class="hero-overlay"></div>
 
       <div class="hero-content container">
 
+        <!-- EDITABLE BADGE -->
+        <div class="hero-badge"
+             id="heroBadge"
+             data-editable="text">
 
-        <!-- HERO LOGO -->
-
-        <div class="hero-logo">
-
-          HM
+          Welcome to Our Digital Platform
 
         </div>
 
 
-        <!-- EDITABLE BADGE -->
-
-        <p class="hero-badge"
-           id="heroBadge">
-
-          Welcome to Our Digital Platform
-
-        </p>
-
-
-        <!-- EDITABLE HEADING -->
-
-        <h2 id="heroTitle">
+        <!-- EDITABLE MAIN TITLE -->
+        <h2 id="heroTitle"
+            data-editable="text">
 
           Hidayathussibiyan
           <span>Madarasa</span>
@@ -143,55 +182,39 @@
 
 
         <!-- EDITABLE DESCRIPTION -->
+        <p id="heroDescription"
+           class="hero-description"
+           data-editable="text">
 
-        <p class="hero-description"
-           id="heroDescription">
-
-          A modern digital platform connecting
-          faith, knowledge, education and our
-          community.
+          A modern digital platform connecting faith,
+          knowledge, education and our community.
 
         </p>
 
 
         <!-- EDITABLE BUTTONS -->
-
         <div class="hero-buttons">
 
           <a href="#explore"
-             class="button button-primary"
-             id="heroButtonOne">
+             class="btn btn-primary"
+             id="heroPrimaryButton"
+             data-editable="button">
 
             Explore Our Platform
 
           </a>
 
 
-          <a href="#jashne"
-             class="button button-outline"
-             id="heroButtonTwo">
+          <a href="#announcements"
+             class="btn btn-outline"
+             id="heroSecondaryButton"
+             data-editable="button">
 
-            Jashne Rabeeh
+            Latest Updates
 
           </a>
 
         </div>
-
-
-        <!-- SCROLL DOWN -->
-
-        <a href="#explore"
-           class="scroll-indicator"
-           aria-label="Scroll to explore section">
-
-          <span>
-            Scroll Down
-          </span>
-
-          ↓
-
-        </a>
-
 
       </div>
 
@@ -200,32 +223,38 @@
 
 
     <!-- =========================
-         EXPLORE SECTION
+         QUICK ACCESS
     ========================== -->
-
     <section class="explore-section"
              id="explore">
 
       <div class="container">
 
 
-        <div class="section-heading">
+        <!-- SECTION TITLE -->
+        <div class="section-title">
 
-          <p class="section-label">
-            Explore
-          </p>
+          <span class="section-label"
+                id="exploreLabel"
+                data-editable="text">
 
-          <h2 id="exploreTitle">
+            QUICK ACCESS
 
-            Everything in One Place
+          </span>
+
+
+          <h2 id="exploreTitle"
+              data-editable="text">
+
+            Explore Our Platform
 
           </h2>
 
 
-          <p id="exploreDescription">
+          <p id="exploreDescription"
+             data-editable="text">
 
-            Discover information, resources,
-            results, events and more.
+            Everything you need, organised in one place.
 
           </p>
 
@@ -233,138 +262,48 @@
 
 
 
-        <!-- CARDS -->
-
+        <!-- =====================
+             QUICK ACCESS CARDS
+        ====================== -->
         <div class="cards-grid">
 
 
+
           <!-- MADARASA INFORMATION -->
+          <a href="pages/madarasa.html"
+             class="access-card"
+             id="madarasaCard">
 
-          <a href="madarasa/index.html"
-             class="feature-card">
-
-            <div class="card-icon">
-
-              <!-- LOGO WILL REPLACE THIS -->
+            <div class="card-icon"
+                 id="madarasaIcon"
+                 data-editable="logo">
 
               🕌
 
             </div>
 
 
-            <h3>
+            <h3 id="madarasaCardTitle"
+                data-editable="text">
+
               Madarasa Information
+
             </h3>
 
 
-            <p>
-              Learn more about our Madarasa,
-              history and community.
+            <p id="madarasaCardText"
+               data-editable="text">
+
+              Learn about our Madarasa,
+              its history and our community.
+
             </p>
 
 
-            <span class="card-link">
+            <span class="card-arrow"
+                  aria-hidden="true">
 
-              Explore →
-
-            </span>
-
-          </a>
-
-
-
-          <!-- RESOURCES -->
-
-          <a href="resources/index.html"
-             class="feature-card">
-
-            <div class="card-icon">
-
-              📚
-
-            </div>
-
-
-            <h3>
-              Resources
-            </h3>
-
-
-            <p>
-              Access educational materials
-              and useful digital resources.
-            </p>
-
-
-            <span class="card-link">
-
-              Explore →
-
-            </span>
-
-          </a>
-
-
-
-          <!-- EXAM RESULTS -->
-
-          <a href="exam-results/index.html"
-             class="feature-card">
-
-            <div class="card-icon">
-
-              📝
-
-            </div>
-
-
-            <h3>
-              Exam Results
-            </h3>
-
-
-            <p>
-              View Mid-Term and Final
-              Examination results.
-            </p>
-
-
-            <span class="card-link">
-
-              View Results →
-
-            </span>
-
-          </a>
-
-
-
-          <!-- JASHNE RABEEH -->
-
-          <a href="jashne-rabeeh/index.html"
-             class="feature-card">
-
-            <div class="card-icon">
-
-              🏆
-
-            </div>
-
-
-            <h3>
-              Jashne Rabeeh
-            </h3>
-
-
-            <p>
-              Events, competitions,
-              updates and results.
-            </p>
-
-
-            <span class="card-link">
-
-              Explore →
+              →
 
             </span>
 
@@ -373,31 +312,208 @@
 
 
           <!-- USTHAD INFORMATION -->
+          <a href="pages/usthad-information.html"
+             class="access-card"
+             id="usthadCard">
 
-          <a href="usthad-information/index.html"
-             class="feature-card">
+            <div class="card-icon"
+                 id="usthadIcon"
+                 data-editable="logo">
 
-            <div class="card-icon">
-
-              👤
+              👨‍🏫
 
             </div>
 
 
-            <h3>
+            <h3 id="usthadCardTitle"
+                data-editable="text">
+
               Usthad Information
+
             </h3>
 
 
-            <p>
-              View information about
-              our respected Usthads.
+            <p id="usthadCardText"
+               data-editable="text">
+
+              View Usthad information,
+              photographs and contact details.
+
             </p>
 
 
-            <span class="card-link">
+            <span class="card-arrow"
+                  aria-hidden="true">
 
-              View Information →
+              →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- RESOURCES -->
+          <a href="pages/resources.html"
+             class="access-card"
+             id="resourcesCard">
+
+            <div class="card-icon"
+                 id="resourcesIcon"
+                 data-editable="logo">
+
+              📚
+
+            </div>
+
+
+            <h3 id="resourcesCardTitle"
+                data-editable="text">
+
+              Resources
+
+            </h3>
+
+
+            <p id="resourcesCardText"
+               data-editable="text">
+
+              Educational materials
+              and useful digital resources.
+
+            </p>
+
+
+            <span class="card-arrow"
+                  aria-hidden="true">
+
+              →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- EXAM RESULTS -->
+          <a href="pages/exam-results.html"
+             class="access-card"
+             id="examResultsCard">
+
+            <div class="card-icon"
+                 id="examResultsIcon"
+                 data-editable="logo">
+
+              📝
+
+            </div>
+
+
+            <h3 id="examResultsCardTitle"
+                data-editable="text">
+
+              Exam Results
+
+            </h3>
+
+
+            <p id="examResultsCardText"
+               data-editable="text">
+
+              Access Mid-Term and
+              Final Examination results.
+
+            </p>
+
+
+            <span class="card-arrow"
+                  aria-hidden="true">
+
+              →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- JASHNE RABEEH -->
+          <a href="pages/jashne-rabeeh.html"
+             class="access-card featured-card"
+             id="jashneCard">
+
+            <div class="card-icon"
+                 id="jashneIcon"
+                 data-editable="logo">
+
+              🏆
+
+            </div>
+
+
+            <h3 id="jashneCardTitle"
+                data-editable="text">
+
+              Jashne Rabeeh
+
+            </h3>
+
+
+            <p id="jashneCardText"
+               data-editable="text">
+
+              Events, competitions,
+              announcements and results.
+
+            </p>
+
+
+            <span class="card-arrow"
+                  aria-hidden="true">
+
+              →
+
+            </span>
+
+          </a>
+
+
+
+          <!-- ANNOUNCEMENTS SHORTCUT -->
+          <a href="#announcements"
+             class="access-card"
+             id="announcementsCard">
+
+            <div class="card-icon"
+                 id="announcementsIcon"
+                 data-editable="logo">
+
+              📢
+
+            </div>
+
+
+            <h3 id="announcementsCardTitle"
+                data-editable="text">
+
+              Announcements
+
+            </h3>
+
+
+            <p id="announcementsCardText"
+               data-editable="text">
+
+              Stay updated with
+              important news and notices.
+
+            </p>
+
+
+            <span class="card-arrow"
+                  aria-hidden="true">
+
+              ↓
 
             </span>
 
@@ -405,6 +521,98 @@
 
 
         </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT / INTRODUCTION
+    ========================== -->
+    <section class="about-section"
+             id="about">
+
+      <div class="container about-container">
+
+
+        <div class="about-content">
+
+          <span class="section-label"
+                id="aboutLabel"
+                data-editable="text">
+
+            ABOUT US
+
+          </span>
+
+
+          <h2 id="aboutTitle"
+              data-editable="text">
+
+            Learning With Faith And Knowledge
+
+          </h2>
+
+
+          <p id="aboutTextOne"
+             data-editable="text">
+
+            Hidayathussibiyan Madarasa is a place
+            dedicated to Islamic education, learning
+            and the development of students.
+
+          </p>
+
+
+          <p id="aboutTextTwo"
+             data-editable="text">
+
+            Through this digital platform, our community
+            can easily access information, educational
+            resources, announcements and examination updates.
+
+          </p>
+
+
+          <a href="pages/madarasa.html"
+             class="text-link"
+             id="aboutButton">
+
+            Learn More About Our Madarasa
+            <span aria-hidden="true">→</span>
+
+          </a>
+
+        </div>
+
+
+        <!-- REPLACEABLE ABOUT VISUAL -->
+        <div class="about-visual"
+             id="aboutVisual"
+             data-editable="image">
+
+          <div class="about-visual-inner">
+
+            <div class="about-symbol">
+
+              HM
+
+            </div>
+
+
+            <p id="aboutVisualText"
+               data-editable="text">
+
+              Faith • Knowledge • Learning
+
+            </p>
+
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -415,31 +623,35 @@
     <!-- =========================
          ANNOUNCEMENTS
     ========================== -->
-
-    <section class="announcement-section"
+    <section class="announcements-section"
              id="announcements">
 
       <div class="container">
 
 
-        <div class="section-heading">
+        <div class="section-title">
 
-          <p class="section-label">
-            Updates
-          </p>
+          <span class="section-label"
+                id="announcementLabel"
+                data-editable="text">
+
+            LATEST NEWS
+
+          </span>
 
 
-          <h2 id="announcementTitle">
+          <h2 id="announcementTitle"
+              data-editable="text">
 
-            Latest Announcements
+            Announcements
 
           </h2>
 
 
-          <p>
+          <p id="announcementDescription"
+             data-editable="text">
 
-            Stay updated with important
-            news and information.
+            Stay informed about important updates.
 
           </p>
 
@@ -447,21 +659,75 @@
 
 
 
-        <div class="announcement-list">
+        <!-- ANNOUNCEMENTS LIST -->
+        <div class="announcements-list"
+             id="announcementsList">
 
 
-          <!-- ANNOUNCEMENT -->
-
-          <article class="announcement-card">
-
+          <!-- ANNOUNCEMENT 1 -->
+          <article class="announcement-card"
+                   id="announcementOne">
 
             <div class="announcement-date">
 
-              <span class="date-day">
-                --
+              <span class="date-icon"
+                    aria-hidden="true">
+
+                📅
+
               </span>
 
-              <span class="date-month">
+
+              <span id="announcementOneDate"
+                    data-editable="text">
+
+                To Be Announced
+
+              </span>
+
+            </div>
+
+
+            <div class="announcement-content">
+
+              <h3 id="announcementOneTitle"
+                  data-editable="text">
+
+                Welcome to Our Digital Platform
+
+              </h3>
+
+
+              <p id="announcementOneText"
+                 data-editable="text">
+
+                Important announcements and updates
+                will be published here.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- ANNOUNCEMENT 2 -->
+          <article class="announcement-card"
+                   id="announcementTwo">
+
+            <div class="announcement-date">
+
+              <span class="date-icon"
+                    aria-hidden="true">
+
+                📢
+
+              </span>
+
+
+              <span id="announcementTwoDate"
+                    data-editable="text">
 
                 Coming Soon
 
@@ -470,25 +736,25 @@
             </div>
 
 
-
             <div class="announcement-content">
 
-              <h3>
+              <h3 id="announcementTwoTitle"
+                  data-editable="text">
 
-                Welcome to Our Digital Platform
+                More Updates Will Be Added
 
               </h3>
 
 
-              <p>
+              <p id="announcementTwoText"
+                 data-editable="text">
 
-                Important announcements and
-                updates will appear here.
+                The administration will publish
+                important information here.
 
               </p>
 
             </div>
-
 
           </article>
 
@@ -496,14 +762,15 @@
         </div>
 
 
-        <div class="section-button">
+        <div class="section-action">
 
-          <a href="#"
-             class="button button-secondary">
+          <button class="btn btn-secondary"
+                  id="viewAllAnnouncements"
+                  type="button">
 
             View All Announcements
 
-          </a>
+          </button>
 
         </div>
 
@@ -515,52 +782,111 @@
 
 
     <!-- =========================
-         JASHNE RABEEH HIGHLIGHT
+         JASHNE RABEEH PREVIEW
     ========================== -->
-
-    <section class="jashne-section"
-             id="jashne">
+    <section class="jashne-preview-section">
 
       <div class="container">
 
 
-        <div class="jashne-box">
+        <div class="jashne-preview">
 
 
-          <div class="jashne-logo">
+          <div class="jashne-content">
+
+            <span class="jashne-label"
+                  id="jashnePreviewLabel"
+                  data-editable="text">
+
+              SPECIAL EVENT
+
+            </span>
+
+
+            <h2 id="jashnePreviewTitle"
+                data-editable="text">
+
+              Jashne Rabeeh
+
+            </h2>
+
+
+            <p id="jashnePreviewText"
+               data-editable="text">
+
+              Discover programme details, competitions,
+              announcements and event results.
+
+            </p>
+
+
+            <a href="pages/jashne-rabeeh.html"
+               class="btn btn-gold"
+               id="jashnePreviewButton">
+
+              Explore Jashne Rabeeh
+
+            </a>
+
+          </div>
+
+
+          <div class="jashne-symbol"
+               id="jashnePreviewLogo"
+               data-editable="logo">
 
             🏆
 
           </div>
 
 
-          <p class="jashne-label">
-
-            Special Programme
-
-          </p>
+        </div>
 
 
-          <h2>
+      </div>
 
-            Jashne Rabeeh
-
-          </h2>
+    </section>
 
 
-          <p>
 
-            Discover programme details,
-            competitions, announcements
-            and results.
+    <!-- =========================
+         CONTACT / COMMUNITY
+    ========================== -->
+    <section class="contact-section"
+             id="contact">
 
-          </p>
+      <div class="container">
 
 
-          <a href="jashne-rabeeh/index.html"
-             class="button button-gold">
+        <div class="contact-box">
 
-            Explore Jashne Rabeeh
+
+          <div class="contact-content">
+
+            <h2 id="contactTitle"
+                data-editable="text">
+
+              Stay Connected With Our Community
+
+            </h2>
+
+
+            <p id="contactText"
+               data-editable="text">
+
+              Visit our Madarasa information page
+              to learn more about us.
+
+            </p>
+
+          </div>
+
+
+          <a href="pages/madarasa.html"
+             class="btn btn-primary"
+             id="contactButton">
+
+            Visit Madarasa Information
 
           </a>
 
@@ -580,37 +906,42 @@
   <!-- =========================
        FOOTER
   ========================== -->
-
   <footer class="site-footer">
 
-
-    <div class="container footer-content">
+    <div class="container footer-container">
 
 
       <!-- FOOTER BRAND -->
-
       <div class="footer-brand">
 
 
-        <div class="footer-logo">
+        <div class="footer-logo"
+             id="footerLogo"
+             data-editable="logo">
 
           HM
 
         </div>
 
 
-        <h3>
+        <div>
 
-          Hidayathussibiyan Madarasa
+          <h3 id="footerName"
+              data-editable="text">
 
-        </h3>
+            Hidayathussibiyan Madarasa
+
+          </h3>
 
 
-        <p>
+          <p id="footerTagline"
+             data-editable="text">
 
-          Faith • Knowledge • Learning
+            Faith • Knowledge • Learning
 
-        </p>
+          </p>
+
+        </div>
 
 
       </div>
@@ -618,62 +949,63 @@
 
 
       <!-- FOOTER LINKS -->
-
       <div class="footer-links">
 
-
-        <a href="#home">
-
+        <a href="index.html">
           Home
-
         </a>
 
-
-        <a href="#explore">
-
-          Explore
-
+        <a href="pages/madarasa.html">
+          Madarasa
         </a>
 
-
-        <a href="#announcements">
-
-          Announcements
-
+        <a href="pages/resources.html">
+          Resources
         </a>
 
+        <a href="pages/exam-results.html">
+          Exam Results
+        </a>
 
-        <a href="admin/index.html">
+      </div>
+
+
+
+      <!-- COPYRIGHT -->
+      <div class="footer-bottom">
+
+        <p id="copyrightText"
+           data-editable="text">
+
+          © <span id="currentYear"></span>
+          Hidayathussibiyan Madarasa.
+          All rights reserved.
+
+        </p>
+
+
+        <!-- ADMIN ACCESS -->
+        <a href="#"
+           class="admin-link"
+           id="adminLogin">
 
           Admin Login
 
         </a>
 
-
       </div>
 
 
-      <!-- COPYRIGHT -->
-
-      <p class="copyright">
-
-        © <span id="currentYear"></span>
-        Hidayathussibiyan Madarasa.
-        All Rights Reserved.
-
-      </p>
-
-
     </div>
-
 
   </footer>
 
 
 
-  <!-- JAVASCRIPT -->
-
-  <script src="js/main.js"></script>
+  <!-- =========================
+       MAIN JAVASCRIPT FILE
+  ========================== -->
+  <script src="js/script.js"></script>
 
 </body>
 

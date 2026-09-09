@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hidayathussibiyan Madarasa — faith, knowledge, learning and community.">
+  <meta name="theme-color" content="#075c6b">
+  <title>Hidayathussibiyan Madarasa</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#home" aria-label="Hidayathussibiyan Madarasa home">
+      <span class="brand-logo" data-editable="siteLogo">
+        <img id="site-logo" src="images/logo.png" alt="Hidayathussibiyan Madarasa logo">
+      </span>
+      <span class="brand-copy">
+        <span class="brand-name" data-editable="siteName">Hidayathussibiyan Madarasa</span>
+        <span class="brand-tagline" data-editable="siteTagline">Faith • Knowledge • Learning</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#quick-access">Explore</a>
+      <a class="nav-link" href="#announcements">Announcements</a>
+      <a class="nav-link" href="#jashne-rabeeh">Jashne Rabeeh</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <label class="language-control">
+        <span class="visually-hidden">Language</span>
+        <select id="language-selector" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ml">മലയാളം</option>
+        </select>
+      </label>
+      <button class="menu-toggle" id="menu-toggle" type="button"
+              aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#quick-access" class="mobile-nav-link">Explore</a>
+    <a href="#announcements" class="mobile-nav-link">Announcements</a>
+    <a href="#jashne-rabeeh" class="mobile-nav-link">Jashne Rabeeh</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="#admin" class="mobile-nav-link admin-link" id="admin-link-mobile">Admin</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <p class="eyebrow" data-editable="heroEyebrow">HIDAYATHUS SIBIYAN</p>
+      <h1 data-editable="heroTitle">A place to learn,<br>grow and serve.</h1>
+      <p class="hero-description" data-editable="heroDescription">
+        A digital home for our Madarasa — bringing together education,
+        important announcements, resources and community.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-gold" href="#quick-access" data-editable="heroPrimaryButton">Explore Madarasa</a>
+        <a class="button button-outline" href="#about" data-editable="heroSecondaryButton">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-side" aria-hidden="true">
+      <div class="hero-mark">
+        <span class="hero-mark-line"></span>
+        <span class="hero-mark-text">علم</span>
+        <span class="hero-mark-line"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section quick-access" id="quick-access">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-label">EXPLORE</p>
+      <h2>Everything in one place</h2>
+      <p>Access the main areas of Hidayathussibiyan Madarasa from one simple home page.</p>
+    </div>
+
+    <div class="cards-grid">
+      <a class="feature-card" href="#" data-card-link="madarasa">
+        <span class="card-number">01</span><span class="card-icon" aria-hidden="true">◈</span>
+        <span class="card-title" data-editable="madarasaCardTitle">Madarasa</span>
+        <span class="card-description" data-editable="madarasaCardDescription">Learn about our Madarasa, its purpose and educational activities.</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="feature-card" href="#" data-card-link="usthad">
+        <span class="card-number">02</span><span class="card-icon" aria-hidden="true">✦</span>
+        <span class="card-title" data-editable="usthadCardTitle">Usthad</span>
+        <span class="card-description" data-editable="usthadCardDescription">Meet our Usthad and find the information provided by the Madarasa.</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="feature-card" href="#" data-card-link="resources">
+        <span class="card-number">03</span><span class="card-icon" aria-hidden="true">▤</span>
+        <span class="card-title" data-editable="resourcesCardTitle">Resources</span>
+        <span class="card-description" data-editable="resourcesCardDescription">Find useful study materials, documents and other Madarasa resources.</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="feature-card" href="#" data-card-link="exam-results">
+        <span class="card-number">04</span><span class="card-icon" aria-hidden="true">✓</span>
+        <span class="card-title" data-editable="examResultsCardTitle">Exam Results</span>
+        <span class="card-description" data-editable="examResultsCardDescription">Check examination results by class and examination type.</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="feature-card" href="#" data-card-link="jashne-rabeeh">
+        <span class="card-number">05</span><span class="card-icon" aria-hidden="true">✧</span>
+        <span class="card-title" data-editable="jashneCardTitle">Jashne Rabeeh</span>
+        <span class="card-description" data-editable="jashneCardDescription">Visit the dedicated Jashne Rabeeh area when it is available.</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="feature-card" href="#announcements">
+        <span class="card-number">06</span><span class="card-icon" aria-hidden="true">!</span>
+        <span class="card-title" data-editable="announcementsCardTitle">Announcements</span>
+        <span class="card-description" data-editable="announcementsCardDescription">Keep up with the latest notices, programmes and important updates.</span>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="container about-grid">
+    <div class="about-heading">
+      <p class="section-label">ABOUT US</p>
+      <h2 data-editable="aboutTitle">Faith and education, together.</h2>
+    </div>
+    <div class="about-content">
+      <p class="lead" data-editable="aboutLead">
+        Hidayathussibiyan Madarasa is a place where students can learn Islamic knowledge in a structured and meaningful environment.
+      </p>
+      <p data-editable="aboutDescription">
+        This website is designed to make important Madarasa information, educational resources, announcements and examination information easier to access for students, parents and the wider community.
+      </p>
+      <a href="#contact" class="text-link" data-editable="aboutLink">Get in touch <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section announcements-section" id="announcements">
+  <div class="container">
+    <div class="section-heading heading-row">
+      <div><p class="section-label">NOTICE BOARD</p><h2>Latest announcements</h2></div>
+      <button class="text-button" id="view-all-announcements" type="button">View all</button>
+    </div>
+
+    <div class="announcement-list">
+      <article class="announcement">
+        <div class="announcement-date"><span>01</span><small>SEP</small></div>
+        <div class="announcement-body">
+          <p class="announcement-type">NOTICE</p>
+          <h3 data-editable="announcementTitle1">Welcome to Hidayathussibiyan Madarasa</h3>
+          <p data-editable="announcementDescription1">Important notices and programme updates will appear here.</p>
+        </div>
+        <span class="announcement-arrow" aria-hidden="true">→</span>
+      </article>
+
+      <article class="announcement">
+        <div class="announcement-date"><span>—</span><small>—</small></div>
+        <div class="announcement-body">
+          <p class="announcement-type">UPDATE</p>
+          <h3 data-editable="announcementTitle2">More announcements coming soon</h3>
+          <p data-editable="announcementDescription2">The notice board will be updated with information from the Madarasa.</p>
+        </div>
+        <span class="announcement-arrow" aria-hidden="true">→</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section jashne-section" id="jashne-rabeeh">
+  <div class="container">
+    <div class="jashne-panel">
+      <div class="jashne-copy">
+        <p class="section-label">SPECIAL PROGRAMME</p>
+        <h2 data-editable="jashneTitle">Jashne Rabeeh</h2>
+        <p data-editable="jashneDescription">Information, programme details and updates for Jashne Rabeeh will be provided here.</p>
+        <a class="button button-light" href="#" data-jashne-link data-editable="jashneButton">Visit Jashne Rabeeh</a>
+      </div>
+      <div class="jashne-side" aria-hidden="true">
+        <span class="arabic-mark">ﷺ</span><span class="jashne-rule"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <p class="section-label">CONTACT</p>
+      <h2 data-editable="contactTitle">Stay connected.</h2>
+      <p data-editable="contactDescription">Contact information can be managed from the future administration system.</p>
+    </div>
+    <div class="contact-details">
+      <div class="contact-item">
+        <span class="contact-label">PHONE</span>
+        <a href="#" id="contact-phone" data-editable="contactPhone">Add phone number</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LOCATION</span>
+        <span data-editable="contactLocation">Add Madarasa location</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-main">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="" class="footer-logo">
+      <div>
+        <strong data-editable="footerSiteName">Hidayathussibiyan Madarasa</strong>
+        <p data-editable="footerTagline">Faith • Knowledge • Learning</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#quick-access">Explore</a>
+      <a href="#announcements">Announcements</a>
+      <a href="#contact">Contact</a>
+      <a href="#admin" id="admin-link">Admin</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="current-year"></span> <span data-editable="copyrightName">Hidayathussibiyan Madarasa</span>. All rights reserved.</p>
+    <p data-editable="footerNote">Official Madarasa website</p>
+  </div>
+</footer>
+
+<script src="js/script.js" defer></script>
+</body>
+                                                             </html>

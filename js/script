@@ -1,1 +1,108 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
 
+  if (menuToggle && mobileMenu) {
+    const links = mobileMenu.querySelectorAll(".mobile-nav-link");
+
+    const setMenuState = (open) => {
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation menu" : "Open navigation menu"
+      );
+      mobileMenu.classList.toggle("active", open);
+      document.body.classList.toggle("menu-open", open);
+
+      const bars = menuToggle.querySelectorAll("span");
+      if (bars.length === 3) {
+        bars[0].style.transform = open ? "translateY(7px) rotate(45deg)" : "";
+        bars[1].style.opacity = open ? "0" : "1";
+        bars[2].style.transform = open ? "translateY(-7px) rotate(-45deg)" : "";
+      }
+    };
+
+    menuToggle.addEventListener("click", () => {
+      setMenuState(menuToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    links.forEach(link => link.addEventListener("click", () => setMenuState(false)));
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+        setMenuState(false);
+        menuToggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) setMenuState(false);
+    });
+  }
+
+  const year = document.getElementById("current-year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+
+      const target = document.querySelector(targetId);
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  const languageSelector = document.getElementById("language-selector");
+  if (languageSelector) {
+    languageSelector.addEventListener("change", () => {
+      if (languageSelector.value !== "en") {
+        alert("Language support will be connected later.");
+        languageSelector.value = "en";
+      }
+    });
+  }
+
+  document.querySelectorAll("#admin-link, #admin-link-mobile").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      alert("The secure Admin Portal will be added later with real authentication and a protected backend.");
+    });
+  });
+
+  const viewAll = document.getElementById("view-all-announcements");
+  if (viewAll) {
+    viewAll.addEventListener("click", () => {
+      alert("The full announcement archive will be connected later.");
+    });
+  }
+
+  const futurePages = {
+    madarasa: "pages/madarasa.html",
+    usthad: "pages/usthad-information.html",
+    resources: "pages/resources.html",
+    "exam-results": "pages/exam-results.html",
+    "jashne-rabeeh": "pages/jashne-rabeeh.html"
+  };
+
+  document.querySelectorAll("[data-card-link]").forEach(card => {
+    card.addEventListener("click", event => {
+      event.preventDefault();
+      const key = card.getAttribute("data-card-link");
+      if (futurePages[key]) {
+        alert("This section will be connected when its page is created.");
+      }
+    });
+  });
+
+  const jashneLink = document.querySelector("[data-jashne-link]");
+  if (jashneLink) {
+    jashneLink.addEventListener("click", event => {
+      event.preventDefault();
+      alert("The Jashne Rabeeh page will be connected later.");
+    });
+  }
+});

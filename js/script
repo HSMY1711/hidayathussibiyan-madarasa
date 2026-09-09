@@ -1,108 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  if (menuToggle && mobileMenu) {
-    const links = mobileMenu.querySelectorAll(".mobile-nav-link");
-
-    const setMenuState = (open) => {
-      menuToggle.setAttribute("aria-expanded", String(open));
-      menuToggle.setAttribute(
-        "aria-label",
-        open ? "Close navigation menu" : "Open navigation menu"
-      );
-      mobileMenu.classList.toggle("active", open);
-      document.body.classList.toggle("menu-open", open);
-
-      const bars = menuToggle.querySelectorAll("span");
-      if (bars.length === 3) {
-        bars[0].style.transform = open ? "translateY(7px) rotate(45deg)" : "";
-        bars[1].style.opacity = open ? "0" : "1";
-        bars[2].style.transform = open ? "translateY(-7px) rotate(-45deg)" : "";
-      }
-    };
-
-    menuToggle.addEventListener("click", () => {
-      setMenuState(menuToggle.getAttribute("aria-expanded") !== "true");
-    });
-
-    links.forEach(link => link.addEventListener("click", () => setMenuState(false)));
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
-        setMenuState(false);
-        menuToggle.focus();
-      }
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 760) setMenuState(false);
-    });
+(function(){
+  'use strict';
+  const menuButton=document.getElementById('menu-toggle');
+  const mobileMenu=document.getElementById('mobile-menu');
+  const closeMenu=()=>{if(!menuButton||!mobileMenu)return;mobileMenu.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation menu');};
+  if(menuButton&&mobileMenu){
+    menuButton.addEventListener('click',()=>{const open=!mobileMenu.classList.contains('open');mobileMenu.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');});
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('click',e=>{if(mobileMenu.classList.contains('open')&&!mobileMenu.contains(e.target)&&!menuButton.contains(e.target))closeMenu();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
   }
-
-  const year = document.getElementById("current-year");
-  if (year) year.textContent = new Date().getFullYear();
-
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", event => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-
-      const target = document.querySelector(targetId);
-      if (target) {
-        event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
-
-  const languageSelector = document.getElementById("language-selector");
-  if (languageSelector) {
-    languageSelector.addEventListener("change", () => {
-      if (languageSelector.value !== "en") {
-        alert("Language support will be connected later.");
-        languageSelector.value = "en";
-      }
-    });
-  }
-
-  document.querySelectorAll("#admin-link, #admin-link-mobile").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      alert("The secure Admin Portal will be added later with real authentication and a protected backend.");
-    });
-  });
-
-  const viewAll = document.getElementById("view-all-announcements");
-  if (viewAll) {
-    viewAll.addEventListener("click", () => {
-      alert("The full announcement archive will be connected later.");
-    });
-  }
-
-  const futurePages = {
-    madarasa: "pages/madarasa.html",
-    usthad: "pages/usthad-information.html",
-    resources: "pages/resources.html",
-    "exam-results": "pages/exam-results.html",
-    "jashne-rabeeh": "pages/jashne-rabeeh.html"
-  };
-
-  document.querySelectorAll("[data-card-link]").forEach(card => {
-    card.addEventListener("click", event => {
-      event.preventDefault();
-      const key = card.getAttribute("data-card-link");
-      if (futurePages[key]) {
-        alert("This section will be connected when its page is created.");
-      }
-    });
-  });
-
-  const jashneLink = document.querySelector("[data-jashne-link]");
-  if (jashneLink) {
-    jashneLink.addEventListener("click", event => {
-      event.preventDefault();
-      alert("The Jashne Rabeeh page will be connected later.");
-    });
-  }
-});
+  const year=document.getElementById('current-year'); if(year) year.textContent=new Date().getFullYear();
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id&&id!=='#'){const target=document.querySelector(id);if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}}));
+  const lang=document.getElementById('language-selector');
+  if(lang) lang.addEventListener('change',()=>{if(lang.value!=='en'){alert('Language support will be connected through the administration system later.');lang.value='en';}});
+  document.querySelectorAll('[data-card-link]').forEach(card=>card.addEventListener('click',e=>{e.preventDefault();const key=card.dataset.cardLink;const routes={madarasa:'pages/madarasa.html',usthad:'pages/usthad-information.html',resources:'pages/resources.html','exam-results':'pages/exam-results.html','jashne-rabeeh':'pages/jashne-rabeeh.html'};if(routes[key])window.location.href=routes[key];}));
+  const jashne=document.querySelector('[data-jashne-link]'); if(jashne) jashne.addEventListener('click',e=>{e.preventDefault();alert('The Jashne Rabeeh page will be connected when the page is created.');});
+  ['admin-link','admin-link-mobile'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',e=>{e.preventDefault();alert('Secure administration will be connected after the backend is added.');closeMenu();});});
+  const viewAll=document.getElementById('view-all-announcements'); if(viewAll)viewAll.addEventListener('click',()=>alert('The announcement archive will be connected through the administration system.'));
+})();
